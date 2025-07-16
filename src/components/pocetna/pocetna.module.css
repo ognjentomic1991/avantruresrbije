@@ -1,54 +1,81 @@
+/* Opšti layout */
 .homePage {
-  background-color: #f0f0f0; /* Svetla siva za opšti background */
+  background-color: #f0f0f0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.homePage.menuActiveMobile {
+  display: none;
+}
+
+/* HERO sekcija */
 .heroSection {
   width: 100%;
-  height: 60vh; /* Visina hero sekcije */
+  height: 60vh;
   background-size: cover;
   background-position: center;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  color: white; /* Tekst boja za kontrast */
+  color: white;
   text-align: center;
   padding: 20px;
 }
 
 .header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: relative;
   width: 100%;
   max-width: 400px;
   margin-bottom: 20px;
+  z-index: 2;
+}
+
+.headerRow {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.hamburger {
+  font-size: 26px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 1001;
+  padding: 0 10px;
+  align-self: flex-start;
+  position: absolute;
+  left: 10px;
+  top: 0;
 }
 
 .searchInput {
-  width: 80%;
-  max-width: 300px;
-  padding: 10px;
-  margin-bottom: 10px;
+  width: 100%;
+  padding: 10px 10px 10px 10px;
   border: 1px solid #ccc;
   border-radius: 20px;
   font-size: 16px;
   background-color: rgba(255, 255, 255, 0.8);
   color: #333;
+  box-sizing: border-box;
 }
 
 .iconsContainer {
   display: flex;
   justify-content: space-around;
   width: 100%;
+  position: relative;
 }
 
 .icon {
-  background-color: #ccc; /* Siva za placeholder ikone */
+  background-color: #ccc;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -58,8 +85,9 @@
   font-size: 12px;
 }
 
+/* Placeholder u hero sekciji */
 .heroPlaceholder {
-  background-color: rgba(255, 255, 255, 0.7); /* Polu-prozirni placeholder */
+  background-color: rgba(255, 255, 255, 0.7);
   width: 80%;
   height: 200px;
   display: flex;
@@ -67,42 +95,94 @@
   justify-content: center;
   color: black;
   font-size: 24px;
+  border-radius: 10px;
+  margin-bottom: 40px; /* Dodaj razmak ispod placeholdera */
 }
 
-.sectionThreeItems {
-  display: flex;
-  justify-content: space-around;
+/* Karoousel sekcija */
+.carousel,
+.carouselSmestaj {
   width: 100%;
-  max-width: 1200px;
-  margin: 20px 0;
-  gap: 20px; /* Dodat razmak između polja */
+  overflow-x: auto;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: flex-start;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
+.carousel::-webkit-scrollbar,
+.carouselSmestaj::-webkit-scrollbar {
+  display: none;
+}
+
+.carouselTrack,
+.carouselTrackSmestaj {
+  display: flex;
+  gap: 20px;
+  padding: 0 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Placeholder za ture i smeštaj */
 .placeholder {
-  background-color: #ddd; /* Siva za placeholder-e */
-  width: 22%; /* Prilagođena širina za 4 polja sa razmakom (100% / 4 - gap) */
+  background-color: #ddd;
+  min-width: 200px;
   height: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 18px;
+  border-radius: 10px;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
+.placeholder:hover {
+  background-color: #ccc;
+  transform: scale(1.03);
+}
+
+/* Stara sekcija za dva elementa (zamenjena karuselom) */
 .sectionTwoItems {
   display: flex;
   justify-content: space-around;
   width: 100%;
   max-width: 800px;
   margin: 20px 0;
+  gap: 20px;
 }
 
+/* FOOTER */
 .footer {
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  gap: 1.5rem;
-  padding: 1rem;
+  align-items: center;
+  padding: 1rem 2rem;
   background-color: #111;
+  color: white;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.footerLeft,
+.footerRight {
+  font-size: 0.9rem;
+  max-width: 100%;
+}
+
+.footerCenter {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0.5rem 0;
 }
 
 .footerIcon a {
@@ -116,7 +196,7 @@
 }
 
 .footerIcon img {
-  width: 28px;     /* ili 32px ako želiš malo veće */
+  width: 28px;
   height: 28px;
   object-fit: contain;
   transition: transform 0.3s ease;
@@ -124,4 +204,121 @@
 
 .footerIcon img:hover {
   transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .footerLeft,
+  .footerRight {
+    max-width: 100%;
+  }
+
+  .headerRow {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .hamburger {
+    align-self: center;
+    position: relative;
+    top: unset;
+    left: unset;
+    margin-top: 10px;
+    font-size: 30px;
+  }
+
+  .dropdownMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+    animation: none;
+  }
+
+  .dropdownMenu div {
+    font-size: 22px;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  padding: 10px 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  animation: slideDown 0.25s ease forwards;
+}
+
+.dropdownMenu div {
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.dropdownMenu div:hover {
+  background-color: #f0f0f0;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+}
+
+.fadeIn {
+  animation: slideDown 0.3s ease forwards;
+}
+
+.fadeOut {
+  animation: fadeOut 0.3s ease forwards;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
