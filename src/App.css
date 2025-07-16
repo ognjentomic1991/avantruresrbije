@@ -1,5 +1,33 @@
 .App {
+  background-color: #c4c3b9;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #c4c3b9;
+}
+
+.App-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.App-button {
+  background: transparent;
+  border: none;
+  color: #393830;
+  margin-top: 20px;
   text-align: center;
+  font-family: system-ui;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: inherit;
+  padding: 0; /* Uklanja padding da ne pomera */
+  display: block; /* Osigurava da je blok element za centriranje */
+  margin-left: auto; /* Centriranje horizontalno */
+  margin-right: auto;
 }
 
 .App-logo {
@@ -14,14 +42,10 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center; /* Dodato za bolje centriranje elemenata unutar header-a */
 }
 
 .App-link {
