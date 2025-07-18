@@ -13,7 +13,7 @@ function Pocetna() {
     const menuRef = useRef();
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
-    // Zatvori meni klikom van njega (samo na desktopu)
+
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (menuOpen && !isMobile && menuRef.current && !menuRef.current.contains(event.target)) {
