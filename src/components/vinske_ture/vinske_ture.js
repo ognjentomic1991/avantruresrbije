@@ -4,7 +4,9 @@ function Vinske_ture() {
   return (
     <div>
       <h1>Dobrodošli na početnu stranicu! Vinske_ture</h1>
-      {/* Dodajte svoj sadržaj ovde */}
+      {
+              <h1>Dobrodošli na početnu stranicu! Vinske_ture</h1>
+      }
     </div>
   );
 }
