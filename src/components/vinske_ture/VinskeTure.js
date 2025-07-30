@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Vinske_ture() {
+function VinskeTure() {
   return (
     <div>
       <h1>Dobrodošli na početnu stranicu! Vinske_ture</h1>
@@ -11,4 +11,4 @@ function Vinske_ture() {
   );
 }
 
-export default Vinske_ture;
+export default VinskeTure;
